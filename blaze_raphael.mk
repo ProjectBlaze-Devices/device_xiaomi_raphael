@@ -1,3 +1,4 @@
+
 # Copyright (C) 2020 LineageOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,21 +16,26 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/xiaomi/raphael/device.mk)
 
-$(call inherit-product, vendor/cherish/config/common_full_phone.mk)
+$(call inherit-product, vendor/blaze/config/common_full_phone.mk)
 
 # Bootanimation Resolution
 TARGET_BOOT_ANIMATION_RES := 1080
 
-# Gapps
-WITH_GMS = true
-TARGET_INCLUDE_GAPPS := true
-TARGET_GAPPS_ARCH := arm64
+#Blaze Stuffs
+TARGET_BOOT_ANIMATION_RES := 1080
+BLAZE_BUILD_TYPE := UNOFFICIAL
+BLAZE_MAINTAINER := Pc(laz_man)
+WITH_GAPPS := true
+TARGET_USE_PIXEL_CHARGER := true
+EXTRA_FOD_ANIMATIONS := true
+EXTRA_UDFPS_ANIMATIONS := true
+PRODUCT_CHARACTERISTICS := nosdcard
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := cherish_raphael
+PRODUCT_NAME := blaze_raphael
 PRODUCT_DEVICE := raphael
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := MI 9T Pro
+PRODUCT_MODEL := Redmi K20 Pro
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
@@ -37,13 +43,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-# CherishOS stuff
-CHERISH_BUILD_TYPE := OFFICIAL
-TARGET_SUPPORTS_QUICK_TAP := true
-EXTRA_UDFPS_ANIMATIONS := true
-PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.cherish.maintainer=DanipunK1
-
-BUILD_FINGERPRINT := "google/redfin/redfin:12/SQ1A.211205.008/7888514:user/release-keys"
+BUILD_FINGERPRINT := "google/raven/raven:12/SP2A.220505.002/8353555:user/release-keys"
 
